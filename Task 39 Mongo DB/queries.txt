@@ -1,0 +1,87 @@
+// Initialize Mongo DB
+
+Mongo
+
+//Listing available databases
+showdbs
+
+//creating new dbs or switching new dbs
+
+use b28wdmongo
+
+//Check current db
+
+db
+
+//To show collections
+
+show collections
+
+//Insert Multiple docs
+
+db.Fullstack.insertMany([{
+    "mainFolder":{
+        "Languages":{
+            "FrontEnd":{
+                "File1":"javascript.js",
+                "File2":["CSS.css","SASS.sass","BootStrap.css"],
+                "File3":"React"
+            },
+            "BackEnd":{
+                "File1":"MongoDB.js",
+                "File2":["AWS.txt","GoogleCloud.txt","Azure.txt"],
+                "File3":"Node.js"
+            },
+        "Tools":{
+            "File1":"VSCode.exe",
+            "File2":["Git.exe","GitHub.com"]
+        }
+        }
+    }
+}])
+
+{
+        "acknowledged" : true,
+        "insertedIds" : [
+                ObjectId("61f826d3d4c4bdd320746a85")
+        ]
+}
+
+//Verify the document inserted
+
+db.Fullstack.find({}).pretty()
+
+ db.Fullstack.find({}).pretty()
+{
+        "_id" : ObjectId("61f826d3d4c4bdd320746a85"),
+        "mainFolder" : {
+                "Languages" : {
+                        "FrontEnd" : {
+                                "File1" : "javascript.js",
+                                "File2" : [
+                                        "CSS.css",
+                                        "SASS.sass",
+                                        "BootStrap.css"
+                                ],
+                                "File3" : "React"
+                        },
+                        "BackEnd" : {
+                                "File1" : "MongoDB.js",
+                                "File2" : [
+                                        "AWS.txt",
+                                        "GoogleCloud.txt",
+                                        "Azure.txt"
+                                ],
+                                "File3" : "Node.js"
+                        },
+                        "Tools" : {
+                                "File1" : "VSCode.exe",
+                                "File2" : [
+                                        "Git.exe",
+                                        "GitHub.com"
+                                ]
+                        }
+                }
+        }
+}
+
